@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Luis Elcure - Desarrollador Front-end y Diseñador UI/UX">
+    <title>Luis Elcure | Portfolio</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="light-mode">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top glass-effect">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-uppercase" href="#">Luis Elcure</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Sobre Mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#stack">Stack</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Conectar</a></li>
+                    <li class="nav-item ms-3">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox" />
+                                <div class="slider round">
+                                    <i class="fas fa-sun sun-icon"></i>
+                                    <i class="fas fa-moon moon-icon"></i>
+                                </div>
+                            </label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="hero-section d-flex align-items-center position-relative overflow-hidden">
+        <div class="parallax-bg"></div>
+        <div class="container position-relative z-2">
+            <div class="row">
+                <div class="col-lg-8" data-aos="fade-up">
+                    <h5 class="text-uppercase letter-spacing-2 mb-3">Diseñador y Desarrollador UI/UX</h5>
+                    <h1 class="display-1 fw-bold text-gradient mb-4">LUIS<br>ELCURE</h1>
+                    <p class="lead mb-5 glass-card p-4 rounded-4" style="max-width: 600px;">
+                        Transformo conceptos creativos en experiencias digitales impactantes.
+                        Especializado en diseño limpio, moderno y funcional.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll Down Indicator -->
+        <div class="scroll-down position-absolute bottom-0 start-50 translate-middle-x mb-4">
+            <a href="#about" class="text-decoration-none text-reset">
+                <i class="fas fa-chevron-down fa-2x animate-bounce"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 mb-5 mb-lg-0 text-center position-relative">
+                    <div class="about-img-container position-relative d-inline-block">
+                        <!-- User bio photo -->
+                        <img src="fotoCv.png" alt="Luis Elcure"
+                            class="img-fluid rounded-4 position-relative z-2 aesthetic-shadow levitate-img">
+                    </div>
+                </div>
+                <div class="col-lg-7 ps-lg-5">
+                    <h6 class="text-primary text-uppercase fw-bold mb-2">Perfil Profesional</h6>
+                    <h2 class="display-4 fw-bold mb-4">SOBRE <span class="text-primary">MÍ</span></h2>
+                    <div class="glass-card p-4 p-md-5 rounded-4 border-0">
+                        <p class="mb-4">
+                            Soy un integrador de soluciones tecnológicas con una visión creativa.
+                            Me especializo en crear interfaces que no solo se ven increíbles, sino que funcionan a la
+                            perfección.
+                            Mi enfoque combina la precisión del código con la sensibilidad del diseño.
+                        </p>
+                        <p class="mb-0">
+                            Siempre busco nuevas formas de innovar y superar las expectativas en cada proyecto.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="stack" class="section-padding bg-light-alt position-relative">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-uppercase">TECH <span class="text-primary">STACK</span></h2>
+                <p class="text-muted">Herramientas de Diseño y Desarrollo</p>
+            </div>
+            <div class="row justify-content-center gap-3">
+                <!-- Stack Items -->
+                <div class="col-6 col-sm-4 col-md-2 stack-item glass-card text-center p-4 rounded-3 hover-scale">
+                    <i class="fab fa-html5 fa-3x text-gradient mb-3"></i>
+                    <h6 class="mb-0">HTML5</h6>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2 stack-item glass-card text-center p-4 rounded-3 hover-scale">
+                    <i class="fab fa-css3-alt fa-3x text-gradient mb-3"></i>
+                    <h6 class="mb-0">CSS3</h6>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2 stack-item glass-card text-center p-4 rounded-3 hover-scale">
+                    <i class="fab fa-js fa-3x text-gradient mb-3"></i>
+                    <h6 class="mb-0">JavaScript</h6>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2 stack-item glass-card text-center p-4 rounded-3 hover-scale">
+                    <i class="fab fa-bootstrap fa-3x text-gradient mb-3"></i>
+                    <h6 class="mb-0">Bootstrap 5</h6>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2 stack-item glass-card text-center p-4 rounded-3 hover-scale">
+                    <i class="fab fa-figma fa-3x text-gradient mb-3"></i>
+                    <h6 class="mb-0">Figma</h6>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2 stack-item glass-card text-center p-4 rounded-3 hover-scale">
+                    <i class="fas fa-pen-nib fa-3x text-gradient mb-3"></i>
+                    <h6 class="mb-0">Illustrator</h6>
+                </div>
+                <!-- New Items -->
+                <div class="col-6 col-sm-4 col-md-2 stack-item glass-card text-center p-4 rounded-3 hover-scale">
+                    <i class="fas fa-code fa-3x text-gradient mb-3"></i>
+                    <h6 class="mb-0">C++</h6>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2 stack-item glass-card text-center p-4 rounded-3 hover-scale">
+                    <i class="fab fa-python fa-3x text-gradient mb-3"></i>
+                    <h6 class="mb-0">Python</h6>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2 stack-item glass-card text-center p-4 rounded-3 hover-scale">
+                    <i class="fas fa-microchip fa-3x text-gradient mb-3"></i>
+                    <h6 class="mb-0">Arduino</h6>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2 stack-item glass-card text-center p-4 rounded-3 hover-scale">
+                    <i class="fas fa-image fa-3x text-gradient mb-3"></i>
+                    <h6 class="mb-0">Photoshop</h6>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2 stack-item glass-card text-center p-4 rounded-3 hover-scale">
+                    <i class="fas fa-video fa-3x text-gradient mb-3"></i>
+                    <h6 class="mb-0">Premiere Pro</h6>
+                </div>
+                <div class="col-6 col-sm-4 col-md-2 stack-item glass-card text-center p-4 rounded-3 hover-scale">
+                    <i class="fas fa-wand-magic-sparkles fa-3x text-gradient mb-3"></i>
+                    <h6 class="mb-0">After Effects</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section (Masonry) -->
+    <section id="portfolio" class="section-padding">
+        <div class="container">
+            <div class="text-start mb-5 d-flex align-items-end justify-content-between">
+                <div>
+                    <h6 class="text-primary text-uppercase fw-bold mb-2">Diseño y Creatividad</h6>
+                    <h2 class="display-4 fw-bold">PROYECTOS <br> DESTACADOS</h2>
+                </div>
+
+            </div>
+
+            <!-- Masonry Grid -->
+            <div class="row g-4 masonry-grid grid">
+                <!-- Group 1: 4 Vertical Cards (Graphic Design) - col-md-4 -->
+                <!-- We will mix them to create a masonry look. 
+                     Row 1: Vertical (4) | Horizontal (8)
+                     Row 2: Horizontal (8) | Vertical (4) ...
+                -->
+
+                <!-- Card 1: Vertical (Graphic Design) -->
+                <div class="col-sm-6 col-lg-4 mb-4 grid-item">
+                    <div
+                        class="project-card glass-card h-100 p-0 overflow-hidden rounded-4 position-relative hover-zoom card-vertical">
+                        <!-- 
+                            ★ VIDEO CARD TEMPLATE ★
+                            Use this structure for video previews.
+                            - 'autoplay muted loop': Ensures background play behavior.
+                            - 'poster': Image shown while video loads.
+                            - 'src': Path to your video file (mp4/webm).
+                        -->
+                        <video class="img-fluid w-100 h-100 object-fit-cover" autoplay muted loop playsinline
+                            poster="assets/video_poster.jpg">
+                            <source
+                                src="G:\Mi unidad\DOCUMENTO_Drive\ElcureDesign\portafolio\2026_02\assets\vikingo.mp4"
+                                type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="card-overlay p-4 d-flex flex-column justify-content-end">
+                            <span class="badge bg-primary w-auto align-self-start mb-2">Diseño Gráfico</span>
+                            <h4 class="text-white fw-bold">Photo composition</h4>
+                            <p class="text-white-50 small mb-0">Proceso de montage estilo poster de película
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Horizontal (Web Dev) -->
+                <div class="col-sm-6 col-lg-4 mb-4 grid-item">
+                    <div
+                        class="project-card glass-card h-100 p-0 overflow-hidden rounded-4 position-relative hover-zoom card-horizontal">
+                        <img src="G:\Mi unidad\DOCUMENTO_Drive\ElcureDesign\portafolio\2026_02\assets\riseWave_muck.png"
+                            alt="Project 2" class="img-fluid w-100 h-100 object-fit-cover">
+                        <div class="card-overlay p-4 d-flex flex-column justify-content-end">
+                            <span class="badge bg-dark w-auto align-self-start mb-2">Desarrollo Web</span>
+                            <h4 class="text-white fw-bold">E-Commerce Platform</h4>
+                            <p class="text-white-50 small mb-0">Tienda en línea responsiva con integración de pagos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Horizontal (Web Dev) -->
+                <div class="col-sm-6 col-lg-4 mb-4 grid-item">
+                    <div
+                        class="project-card glass-card h-100 p-0 overflow-hidden rounded-4 position-relative hover-zoom card-horizontal">
+                        <img src="G:\Mi unidad\DOCUMENTO_Drive\ElcureDesign\portafolio\2026_02\assets\dashboard_duble.png"
+                            alt="Project 3" class="img-fluid w-100 h-100 object-fit-cover">
+                        <div class="card-overlay p-4 d-flex flex-column justify-content-end">
+                            <span class="badge bg-dark w-auto align-self-start mb-2">Desarrollo Web</span>
+                            <h4 class="text-white fw-bold">Dashboard Admin</h4>
+                            <p class="text-white-50 small mb-0">Panel de administración con visualización de datos de
+                                facturación.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Vertical (Graphic Design) -->
+                <div class="col-sm-6 col-lg-4 mb-4 grid-item">
+                    <div
+                        class="project-card glass-card h-100 p-0 overflow-hidden rounded-4 position-relative hover-zoom card-horizontal">
+                        <img src="G:\Mi unidad\DOCUMENTO_Drive\ElcureDesign\portafolio\2026_02\assets\carontas_plublic.png"
+                            alt="Project 4" class="img-fluid w-100 h-100 object-fit-cover">
+                        <div class="card-overlay p-4 d-flex flex-column justify-content-end">
+                            <span class="badge bg-primary w-auto align-self-start mb-2">Diseño Gráfico</span>
+                            <h4 class="text-white fw-bold">Poster Series</h4>
+                            <p class="text-white-50 small mb-0">Serie de posters para evento cultural.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Vertical (Graphic Design) -->
+                <div class="col-sm-6 col-lg-4 mb-4 grid-item">
+                    <div
+                        class="project-card glass-card h-100 p-0 overflow-hidden rounded-4 position-relative hover-zoom card-vertical">
+                        <img src="G:\Mi unidad\DOCUMENTO_Drive\ElcureDesign\portafolio\2026_02\assets\neko_frontage.png"
+                            alt="Project 5" class="img-fluid w-100 h-100 object-fit-cover">
+                        <div class="card-overlay p-4 d-flex flex-column justify-content-end">
+                            <span class="badge bg-primary w-auto align-self-start mb-2">Diseño Gráfico</span>
+                            <h4 class="text-white fw-bold">Retail Design Mockup</h4>
+                            <p class="text-white-50 small mb-0">Diseño de en muck up de tienda comercial.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Small (Branding/UI) -->
+                <div class="col-sm-6 col-lg-4 mb-4 grid-item">
+                    <div
+                        class="project-card glass-card h-100 p-0 overflow-hidden rounded-4 position-relative hover-zoom card-small">
+                        <img src="G:\Mi unidad\DOCUMENTO_Drive\ElcureDesign\portafolio\2026_02\assets\gymFit_icons.png"
+                            alt="Project 6" class="img-fluid w-100 h-100 object-fit-cover">
+                        <div class="card-overlay p-4 d-flex flex-column justify-content-end">
+                            <span class="badge bg-success w-auto align-self-start mb-2">UI Design</span>
+                            <h4 class="text-white fw-bold">App Icon Set</h4>
+                            <p class="text-white-50 small mb-0">Iconografía moderna para dispositivos móviles.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7: Small (Branding/UI) -->
+                <div class="col-sm-6 col-lg-4 mb-4 grid-item">
+                    <div
+                        class="project-card glass-card h-100 p-0 overflow-hidden rounded-4 position-relative hover-zoom card-small">
+                        <img src="G:\Mi unidad\DOCUMENTO_Drive\ElcureDesign\portafolio\2026_02\assets\redesign_logo.jpg"
+                            alt="Project 7" class="img-fluid w-100 h-100 object-fit-cover">
+                        <div class="card-overlay p-4 d-flex flex-column justify-content-end">
+                            <span class="badge bg-success w-auto align-self-start mb-2">Branding</span>
+                            <h4 class="text-white fw-bold">Logo Redesign</h4>
+                            <p class="text-white-50 small mb-0">Rebranding para empresa local.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8: Horizontal (Web Dev) -->
+                <div class="col-sm-6 col-lg-4 mb-4 grid-item">
+                    <div
+                        class="project-card glass-card h-100 p-0 overflow-hidden rounded-4 position-relative hover-zoom card-horizontal">
+                        <img src="G:\Mi unidad\DOCUMENTO_Drive\ElcureDesign\portafolio\2026_02\assets\alterfit_web.jpeg"
+                            alt="Project 8" class="img-fluid w-100 h-100 object-fit-cover">
+                        <div class="card-overlay p-4 d-flex flex-column justify-content-end">
+                            <span class="badge bg-dark w-auto align-self-start mb-2">Desarrollo Web</span>
+                            <h4 class="text-white fw-bold">Landing Page</h4>
+                            <p class="text-white-50 small mb-0">Página de aterrizaje de alta conversión.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 9: Small (Branding/UI) -->
+                <div class="col-sm-6 col-lg-4 mb-4 grid-item">
+                    <div
+                        class="project-card glass-card h-100 p-0 overflow-hidden rounded-4 position-relative hover-zoom card-small">
+                        <img src="G:\Mi unidad\DOCUMENTO_Drive\ElcureDesign\portafolio\2026_02\assets\viva_brandboard.png"
+                            alt="Project 9" class="img-fluid w-100 h-100 object-fit-cover">
+                        <div class="card-overlay p-4 d-flex flex-column justify-content-end">
+                            <span class="badge bg-success w-auto align-self-start mb-2">Branding</span>
+                            <h4 class="text-white fw-bold">Brand Identity</h4>
+                            <p class="text-white-50 small mb-0">Identidad visual completa para startup de pastelería.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 10: Horizontal (Web Dev) -->
+                <div class="col-sm-6 col-lg-4 mb-4 grid-item">
+                    <div
+                        class="project-card glass-card h-100 p-0 overflow-hidden rounded-4 position-relative hover-zoom card-vertical">
+                        <!-- 
+                            ★ VIDEO CARD TEMPLATE ★
+                            Use this structure for video previews.
+                            - 'autoplay muted loop': Ensures background play behavior.
+                            - 'poster': Image shown while video loads.
+                            - 'src': Path to your video file (mp4/webm).
+                        -->
+                        <video class="img-fluid w-100 h-100 object-fit-cover" autoplay muted loop playsinline
+                            poster="assets/video_poster.jpg">
+                            <source src="G:\Mi unidad\DOCUMENTO_Drive\ElcureDesign\portafolio\2026_02\assets\intro.mp4"
+                                type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="card-overlay p-4 d-flex flex-column justify-content-end">
+                            <span class="badge bg-primary w-auto align-self-start mb-2">Animación</span>
+                            <h4 class="text-white fw-bold">Intro Video</h4>
+                            <p class="text-white-50 small mb-0">Trabajo práctico sobre Intro de programa en After
+                                effects</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 11: Vertical (Graphic Design) -->
+                <div class="col-sm-6 col-lg-4 mb-4 grid-item">
+                    <div
+                        class="project-card glass-card h-100 p-0 overflow-hidden rounded-4 position-relative hover-zoom card-small">
+                        <img src="G:\Mi unidad\DOCUMENTO_Drive\ElcureDesign\portafolio\2026_02\assets\packaging_duble.png"
+                            alt="Project 11" class="img-fluid w-100 h-100 object-fit-cover">
+                        <div class="card-overlay p-4 d-flex flex-column justify-content-end">
+                            <span class="badge bg-primary w-auto align-self-start mb-2">Diseño Gráfico</span>
+                            <h4 class="text-white fw-bold">Packaging</h4>
+                            <p class="text-white-50 small mb-0">Diseño de empaque gastronómico.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 12: Small (Branding/UI) -->
+                <div class="col-sm-6 col-lg-4 mb-4 grid-item">
+                    <div
+                        class="project-card glass-card h-100 p-0 overflow-hidden rounded-4 position-relative hover-zoom card-small">
+                        <img src="G:\Mi unidad\DOCUMENTO_Drive\ElcureDesign\portafolio\2026_02\assets\plantillaSocialMedia.png"
+                            alt="Project 12" class="img-fluid w-100 h-100 object-fit-cover">
+                        <div class="card-overlay p-4 d-flex flex-column justify-content-end">
+                            <span class="badge bg-success w-auto align-self-start mb-2">Social Media</span>
+                            <h4 class="text-white fw-bold">Content Kit</h4>
+                            <p class="text-white-50 small mb-0">Plantillas para redes sociales.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding contact-bg position-relative">
+        <div class="container position-relative z-2">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="glass-card p-5 rounded-4 border-0">
+                        <div class="text-center mb-4">
+                            <h2 class="display-6 fw-bold">¿LISTO PARA <br> <span class="text-primary">CREAR?</span></h2>
+                            <p class="text-muted">Envíame un mensaje y empecemos a trabajar en tu próximo proyecto.</p>
+                        </div>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control form-control-lg glass-input"
+                                        placeholder="Tu nombre">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control form-control-lg glass-input"
+                                        placeholder="Tu correo electrónico">
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control form-control-lg glass-input" rows="4"
+                                        placeholder="¿En qué puedo ayudarte?"></textarea>
+                                </div>
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" class="btn btn-primary btn-lg rounded-pill px-5 w-100">ENVIAR
+                                        CONSULTA</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row mt-5">
+                            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                                <i class="fas fa-envelope text-primary me-2"></i> luiselcure@gmail.com
+                            </div>
+                            <div class="col-md-6 text-center text-md-start">
+                                <i class="fas fa-map-marker-alt text-primary me-2"></i> Buenos Aires, Argentina
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-4 bg-dark text-white">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="mb-3 mb-md-0">
+                <h5 class="fw-bold m-0"><i class="fas fa-code text-primary"></i> LUIS <span
+                        class="fw-light">ELCURE</span></h5>
+                <small class="text-white-50">© 2026 Todos los derechos reservados.</small>
+            </div>
+            <div class="social-links">
+                <a href="#" class="text-white me-3 hover-primary"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-white me-3 hover-primary"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-white hover-primary"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- ImagesLoaded -->
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <!-- Masonry Layout -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <!-- Custom Scripts -->
+    <script src="script.js"></script>
+</body>
+
+</html>

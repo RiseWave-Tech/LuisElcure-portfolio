@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rise Wave Tech - Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&amp;family=Rajdhani:wght@300;400;500;600;700&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-grid.min.css" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#D91E1E",
+                        secondary: "#0F4C4C",
+                        "secondary-dark": "#0A2F2F",
+                        accent: "#E5E1D0",
+                        "background-light": "#F2EFE6", 
+                        "background-dark": "#050C0C",
+                        "card-dark": "#122020",
+                        "text-dark": "#1A1F21",
+                        "text-light": "#E0E6E6"
+                    },
+                    fontFamily: {
+                        display: ["Orbitron", "sans-serif"],
+                        body: ["Rajdhani", "sans-serif"],
+                        mono: ["Share Tech Mono", "monospace"],
+                    },
+                    boxShadow: {
+                        'neon': '0 0 10px rgba(217, 30, 30, 0.5), 0 0 20px rgba(217, 30, 30, 0.3)',
+                        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
+                        'glow': '0 0 15px rgba(255, 255, 255, 0.1)',
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        .dark .glass-panel {
+            background: rgba(15, 76, 76, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        }
+        .glass-stat-card {
+             background: rgba(255, 255, 255, 0.05);
+             backdrop-filter: blur(20px);
+             -webkit-backdrop-filter: blur(20px);
+             border: 1px solid rgba(255, 255, 255, 0.1);
+             box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+        }
+        .dark .glass-stat-card {
+            background: rgba(10, 30, 30, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 20px rgba(15, 76, 76, 0.2);
+        }
+        .glass-footer {
+             background: rgba(255, 255, 255, 0.85);
+             backdrop-filter: blur(12px);
+             -webkit-backdrop-filter: blur(12px);
+        }
+        .dark .glass-footer {
+            background: rgba(5, 12, 12, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #050C0C;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D91E1E;
+            border-radius: 4px;
+        }
+        .text-shadow-sm {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .nav-blur {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .input-glass {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .input-glass:focus {
+            background: rgba(0, 0, 0, 0.4);
+            border-color: #D91E1E;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-dark dark:text-text-light font-body transition-colors duration-500 selection:bg-primary selection:text-white">
+<nav class="fixed w-full z-50 top-0 bg-white/60 dark:bg-black/40 nav-blur border-b-[0.5px] border-white/20 dark:border-white/10 transition-all duration-300 shadow-sm">
+<div class="container mx-auto px-6 py-4 flex justify-between items-center">
+<div class="flex items-center gap-3 group cursor-pointer">
+<div class="w-10 h-10 bg-white dark:bg-black rounded-full flex items-center justify-center border-2 border-primary overflow-hidden relative shadow-neon transition-transform group-hover:rotate-180 duration-700">
+<img alt="Rise Wave Logo" class="object-cover w-full h-full scale-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqyMmOavnh8HFM9n-H-X-nEQC3IMEjT22nLhoB7eG5n-2GVKHJ1y59w93W9K7OX7X6pJustQOM93ZtaWNSoJkCN5M98vYLTqCqPKXqPPqXA56mcqfV3haA-Re16y9hBq8eJS_RPD1tDxhx6j7llSse_nMnE63EU5s0MmfVGEsvZsQ04K-dYnyF9Za3EnVIHMizMqUdtbyf2aj3-wxWBDyA9ijIG8Mcr4Bh3mLGm5rMoimS11cf15P_TAaOm3MyKM9mhMNiX9wViQ9T"/>
+</div>
+<div class="font-display font-black text-lg leading-tight tracking-widest text-secondary dark:text-white">
+                    RISE<span class="text-primary">WAVE</span>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-xs font-mono font-bold uppercase tracking-[0.2em] text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all hover:tracking-[0.25em]" href="#hero">Inicio</a>
+<a class="text-xs font-mono font-bold uppercase tracking-[0.2em] text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all hover:tracking-[0.25em]" href="#about">Sobre Mi</a>
+<a class="text-xs font-mono font-bold uppercase tracking-[0.2em] text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all hover:tracking-[0.25em]" href="#stack">Tecnología</a>
+<a class="text-xs font-mono font-bold uppercase tracking-[0.2em] text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all hover:tracking-[0.25em]" href="#portfolio">Catálogo</a>
+<a class="text-xs font-mono font-bold uppercase tracking-[0.2em] text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-all hover:tracking-[0.25em]" href="#contact">Contacto</a>
+<button aria-label="Toggle Dark Mode" class="p-2 rounded-full bg-gray-200/50 dark:bg-gray-800/50 text-gray-800 dark:text-gray-200 focus:outline-none transition-transform hover:scale-110 active:scale-90" id="theme-toggle">
+<span class="material-symbols-outlined dark:hidden text-sm">dark_mode</span>
+<span class="material-symbols-outlined hidden dark:block text-sm">light_mode</span>
+</button>
+</div>
+<button class="md:hidden text-secondary dark:text-white p-2" id="mobile-menu-btn">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+<div class="hidden md:hidden bg-white/95 dark:bg-black/95 backdrop-blur-xl p-6 border-t border-gray-200 dark:border-gray-800 absolute w-full z-40 shadow-xl" id="mobile-menu">
+<div class="flex flex-col gap-6 items-center">
+<a class="font-mono font-bold uppercase text-sm tracking-widest hover:text-primary" href="#hero">Inicio</a>
+<a class="font-mono font-bold uppercase text-sm tracking-widest hover:text-primary" href="#about">Sobre Mi</a>
+<a class="font-mono font-bold uppercase text-sm tracking-widest hover:text-primary" href="#stack">Tecnología</a>
+<a class="font-mono font-bold uppercase text-sm tracking-widest hover:text-primary" href="#portfolio">Catálogo</a>
+<a class="font-mono font-bold uppercase text-sm tracking-widest hover:text-primary" href="#contact">Contacto</a>
+</div>
+</div>
+</nav>
+<section class="relative h-screen min-h-[800px] flex items-center overflow-hidden parallax-bg" id="hero" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCvEd-U0g0EQnrxryWoWOjQ7dPjTk99uIDv1sx4Uix-Yh3UrcgC2pkqZ7dq30byFeg14XGXdiVZ73I82775PCcNkqe6pdivuO2zZ5d_Ra5969wPykqPPw9ZDKWghhVKL0FU3s6-cGM9M4ySBwV7hORnutykXxdgJLU_AVZxH1aKBZPtsvDb6JYkcq3er5xLtCesPmvunDsqyDs_CiVTFpdS7ivzKHWRnMdAoyF0r5-VAoOkirE2k6OgRT_Zs-piuLmqqzsES_mIEDLa');">
+<div class="absolute inset-0 bg-background-light/90 dark:bg-background-dark/80 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background-light via-transparent to-transparent dark:from-background-dark dark:via-background-dark/80 dark:to-transparent"></div>
+<div class="container mx-auto px-6 relative z-10 pt-20">
+<div class="max-w-5xl space-y-12 reveal active">
+<div>
+<span class="font-mono font-bold text-primary tracking-[0.5em] text-sm uppercase mb-6 block">Creative Developer &amp; Tech Lead</span>
+<h1 class="font-display font-black text-6xl md:text-8xl lg:text-9xl leading-[0.9] text-secondary dark:text-white mb-10 uppercase tracking-tighter drop-shadow-2xl">
+<span class="block text-secondary dark:text-white tracking-tight">Luis</span>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-red-500 to-secondary dark:to-teal-500 tracking-tight">Elcure</span>
+</h1>
+</div>
+<div class="backdrop-blur-md bg-white/20 dark:bg-black/20 p-10 rounded-r-3xl border-l-4 border-primary max-w-2xl shadow-glass mt-8">
+<p class="font-body text-xl md:text-2xl font-medium tracking-wide text-gray-800 dark:text-gray-100 leading-relaxed">
+                        Diseñador Multimedia y Líder Educativo especializado en <span class="text-primary font-bold">tecnología, robótica y diseño</span>. Transformo conceptos complejos en experiencias educativas y productos tangibles mediante pensamiento computacional e innovación.
+                    </p>
+</div>
+<div class="flex gap-6 pt-8">
+<a class="px-8 py-4 bg-primary text-white font-mono font-bold uppercase tracking-widest text-sm hover:bg-red-700 transition-all shadow-lg hover:shadow-neon" href="#portfolio">Ver Portfolio</a>
+<a class="px-8 py-4 border border-secondary dark:border-white text-secondary dark:text-white font-mono font-bold uppercase tracking-widest text-sm hover:bg-secondary hover:text-white dark:hover:bg-white dark:hover:text-black transition-all" href="#contact">Contactar</a>
+</div>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce flex flex-col items-center gap-2 opacity-70">
+<span class="text-[10px] uppercase tracking-[0.3em] font-mono">Scroll</span>
+<span class="material-symbols-outlined text-2xl text-primary">keyboard_arrow_down</span>
+</div>
+</section>
+<section class="py-32 bg-background-light dark:bg-[#081212] relative overflow-hidden" id="about">
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-gray-200/50 to-transparent dark:from-[#0F4C4C]/10 dark:to-transparent pointer-events-none"></div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+<div class="w-full lg:w-5/12 flex justify-center lg:justify-end reveal">
+<div class="relative w-72 h-72 md:w-96 md:h-96 group">
+<div class="absolute inset-0 border-[3px] border-primary/30 rounded-full animate-[spin_20s_linear_infinite]"></div>
+<div class="absolute -inset-4 border border-dashed border-gray-400/50 dark:border-gray-500/50 rounded-full animate-[spin_30s_linear_infinite_reverse]"></div>
+<div class="absolute inset-0 m-6 rounded-full overflow-hidden shadow-2xl glass-panel relative z-10">
+<div class="absolute inset-0 bg-primary/10 mix-blend-overlay z-20 transition-opacity group-hover:opacity-0"></div>
+<img alt="Profile" class="w-full h-full object-cover transform scale-110 group-hover:scale-100 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYHJWGrYNQrAzy9YbUnZCv5wIGTWqaUxI7CS--VsiQKv4COAWjKXHGMqT8feIW3QnoHULbOh7JJh1OmCTrDVJ-dcMDDfSBmFBACYYrD_qoHkh5yfOMsqzy6kEtT7jmx61_ANGdVU2aNeXkB0V0dYyVGM025ooc6F-npC76rRO3tNkgjv54VuieQspgZpKRuXW-7QDP3R0R6eO6pDfrl6UQ2hxqPJ-BremUzCpmubIpsLRohjXLpQilHq-kIqPde7I4ybMgVnM66Km0"/>
+</div>
+<div class="absolute top-0 right-0 p-2 bg-secondary rounded-full z-20"></div>
+<div class="absolute bottom-10 left-0 p-3 bg-primary rounded-full z-20"></div>
+</div>
+</div>
+<div class="w-full lg:w-7/12 space-y-8 reveal delay-100">
+<div>
+<span class="text-primary font-mono font-bold tracking-[0.2em] uppercase text-sm mb-2 block">Perfil Profesional</span>
+<h2 class="font-display font-black text-5xl text-secondary dark:text-white uppercase tracking-wider mb-6">
+                        Sobre <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-500">Mí</span>
+</h2>
+</div>
+<p class="font-body text-xl text-gray-600 dark:text-gray-300 leading-relaxed font-light text-justify">
+                        Más que un diseñador, soy un integrador de soluciones tecnológicas. Con una sólida trayectoria en la coordinación de programas educativos, fusiono la pedagogía con herramientas de vanguardia como la impresión 3D y la programación avanzada. Mi enfoque se centra en la gestión eficiente de equipos, la mejora continua de procesos y una comunicación asertiva que puentea la brecha entre la idea y la ejecución.
+                    </p>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-gray-200 dark:border-gray-800">
+<div class="glass-stat-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 group">
+<span class="block font-display text-5xl font-black text-primary mb-2 group-hover:text-red-500 transition-colors">48h</span>
+<span class="text-xs font-mono font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">Entrega Rápida</span>
+</div>
+<div class="glass-stat-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 group">
+<span class="block font-display text-5xl font-black text-secondary dark:text-white mb-2 group-hover:text-primary transition-colors">+500</span>
+<span class="text-xs font-mono font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">Proyectos</span>
+</div>
+<div class="glass-stat-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 group">
+<span class="block font-display text-5xl font-black text-primary mb-2 group-hover:text-red-500 transition-colors">100%</span>
+<span class="text-xs font-mono font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">Personalizable</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-28 bg-gray-50 dark:bg-[#0a1818]" id="stack">
+<div class="container mx-auto px-6">
+<div class="text-center mb-20 reveal">
+<h2 class="font-display font-black text-4xl md:text-5xl text-secondary dark:text-white uppercase tracking-widest mb-4">Tech <span class="text-primary">Stack</span></h2>
+<p class="font-mono text-gray-500 uppercase tracking-widest text-sm">Herramientas de Diseño y Fabricación</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+<div class="glass-panel p-8 rounded-2xl flex flex-col items-center justify-center gap-5 hover:bg-white/5 transition-all duration-500 hover:-translate-y-3 cursor-pointer reveal group border-b-4 border-transparent hover:border-primary">
+<div class="w-16 h-16 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl text-gray-600 dark:text-gray-400 group-hover:text-primary transition-colors">view_in_ar</span>
+</div>
+<span class="font-mono font-bold text-sm tracking-widest uppercase text-center">Fusion 360</span>
+</div>
+<div class="glass-panel p-8 rounded-2xl flex flex-col items-center justify-center gap-5 hover:bg-white/5 transition-all duration-500 hover:-translate-y-3 cursor-pointer reveal delay-75 group border-b-4 border-transparent hover:border-primary">
+<div class="w-16 h-16 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl text-gray-600 dark:text-gray-400 group-hover:text-primary transition-colors">print</span>
+</div>
+<span class="font-mono font-bold text-sm tracking-widest uppercase text-center">Prusa Slicer</span>
+</div>
+<div class="glass-panel p-8 rounded-2xl flex flex-col items-center justify-center gap-5 hover:bg-white/5 transition-all duration-500 hover:-translate-y-3 cursor-pointer reveal delay-100 group border-b-4 border-transparent hover:border-primary">
+<div class="w-16 h-16 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl text-gray-600 dark:text-gray-400 group-hover:text-primary transition-colors">deployed_code</span>
+</div>
+<span class="font-mono font-bold text-sm tracking-widest uppercase text-center">Blender</span>
+</div>
+<div class="glass-panel p-8 rounded-2xl flex flex-col items-center justify-center gap-5 hover:bg-white/5 transition-all duration-500 hover:-translate-y-3 cursor-pointer reveal delay-150 group border-b-4 border-transparent hover:border-primary">
+<div class="w-16 h-16 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl text-gray-600 dark:text-gray-400 group-hover:text-primary transition-colors">polymer</span>
+</div>
+<span class="font-mono font-bold text-sm tracking-widest uppercase text-center">PLA/PETG</span>
+</div>
+<div class="glass-panel p-8 rounded-2xl flex flex-col items-center justify-center gap-5 hover:bg-white/5 transition-all duration-500 hover:-translate-y-3 cursor-pointer reveal delay-200 group border-b-4 border-transparent hover:border-primary">
+<div class="w-16 h-16 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl text-gray-600 dark:text-gray-400 group-hover:text-primary transition-colors">settings_suggest</span>
+</div>
+<span class="font-mono font-bold text-sm tracking-widest uppercase text-center">Cura</span>
+</div>
+<div class="glass-panel p-8 rounded-2xl flex flex-col items-center justify-center gap-5 hover:bg-white/5 transition-all duration-500 hover:-translate-y-3 cursor-pointer reveal delay-250 group border-b-4 border-transparent hover:border-primary">
+<div class="w-16 h-16 rounded-full bg-gray-100 dark:bg-white/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-4xl text-gray-600 dark:text-gray-400 group-hover:text-primary transition-colors">precision_manufacturing</span>
+</div>
+<span class="font-mono font-bold text-sm tracking-widest uppercase text-center">Voron 2.4</span>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 bg-background-light dark:bg-background-dark relative" id="portfolio">
+<div class="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/black-scales.png')] pointer-events-none"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-6 reveal">
+<div class="space-y-4">
+<h3 class="text-primary font-mono font-bold tracking-[0.3em] text-sm uppercase">Arsenal Creativo</h3>
+<h2 class="font-display font-black text-5xl md:text-6xl uppercase tracking-wider text-secondary dark:text-white">Proyectos <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-400 to-gray-600 dark:from-gray-500 dark:to-gray-700">Recientes</span></h2>
+</div>
+<a class="hidden md:inline-flex items-center gap-2 font-mono font-bold uppercase text-xs tracking-widest border-b-2 border-primary pb-1 hover:text-primary transition-colors" href="#">
+                    Ver Todos <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="row g-4" data-masonry='{"percentPosition": true }'>
+<div class="col-lg-4 col-md-6 mb-4 reveal">
+<div class="glass-panel rounded-2xl overflow-hidden h-full group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 relative transform hover:-translate-y-3">
+<div class="relative h-72 overflow-hidden">
+<div class="absolute inset-0 bg-secondary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-5xl scale-50 group-hover:scale-100 transition-transform duration-300">visibility</span>
+</div>
+<img alt="Project 1" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQ_iZt6KtRdM-3gGsIvkurKVMWjXb0c3fCkBXSLZvsZjo0PRH4kNsIslcOX60DGM4nHjTZY_4U0wVCYWr17UlWjM6gnncuws1VYsDWEH7IKGzh_ovbY3G_kF6l2dKL9YSbmKXY4rvsSGG4crFyl_3rhexlVT9LWOgq42CZ3f2DxZbK_tFMArxZW3MigV4i280dvi2-9Mg85w9of5hJWH7VQZA8JGfVN7nYR4lMPVnB01fmRJs8SriZGGVs33wD5tz3AGvMrvGUDnXO"/>
+<div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded text-[10px] font-mono font-bold uppercase tracking-widest text-primary border border-white/10">Gaming</div>
+</div>
+<div class="p-8 pb-20">
+<h3 class="font-display font-bold text-2xl text-secondary dark:text-white mb-3 group-hover:text-primary transition-colors">Stand Auriculares RGB</h3>
+<p class="font-body text-gray-600 dark:text-gray-400 text-base leading-relaxed">Soporte personalizado con iluminación integrada y hubs USB ocultos para máxima funcionalidad.</p>
+</div>
+<div class="glass-footer absolute bottom-0 w-full p-4 border-t border-white/10 flex justify-between items-center text-text-dark dark:text-white">
+<span class="text-xs font-mono text-gray-600 dark:text-gray-300 uppercase tracking-wider">01 / Diseño 3D</span>
+<a class="inline-flex items-center text-xs font-mono font-bold uppercase tracking-wider hover:text-primary transition-colors" href="#">
+                                Ver Detalles <span class="material-symbols-outlined text-sm ml-1">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 reveal delay-100">
+<div class="glass-panel rounded-2xl overflow-hidden h-full group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 relative transform hover:-translate-y-3">
+<div class="relative h-[400px] overflow-hidden">
+<div class="absolute inset-0 bg-secondary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-5xl scale-50 group-hover:scale-100 transition-transform duration-300">visibility</span>
+</div>
+<img alt="Project 2" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh9co8i75-PKQ1OypUA2cvf_af1Pdn8aqOWysMTk7HOZJ5O_LJABLeVpU_TB9qBvE5_a7_Z9sHuPEyr1ccecc0XD83S41Fwz7rTuJKU-SQ7lVMva6oXvWK9Mo05VcD-Nic12pZlNwZ69vMVgSL12lSN8-e1cA_7gl4PkWksPfsZK7wg3zOlNDlPpI5JtwjTi-fvdSiuCY3BGJd0UNRZ78B5Pp0wTGXr8X47l_xOav99_-r6gddAoxwR3QcelHJdPNjeUkqv7Gmt7nz"/>
+<div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded text-[10px] font-mono font-bold uppercase tracking-widest text-primary border border-white/10">Oficina</div>
+</div>
+<div class="p-8 pb-20">
+<h3 class="font-display font-bold text-2xl text-secondary dark:text-white mb-3 group-hover:text-primary transition-colors">Organizador Modular Hex</h3>
+<p class="font-body text-gray-600 dark:text-gray-400 text-base leading-relaxed">Sistema de organización de escritorio modular inspirado en colmenas para optimizar espacios.</p>
+</div>
+<div class="glass-footer absolute bottom-0 w-full p-4 border-t border-white/10 flex justify-between items-center text-text-dark dark:text-white">
+<span class="text-xs font-mono text-gray-600 dark:text-gray-300 uppercase tracking-wider">02 / Producto</span>
+<a class="inline-flex items-center text-xs font-mono font-bold uppercase tracking-wider hover:text-primary transition-colors" href="#">
+                                Ver Detalles <span class="material-symbols-outlined text-sm ml-1">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 reveal delay-200">
+<div class="glass-panel rounded-2xl overflow-hidden h-full group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 relative transform hover:-translate-y-3">
+<div class="relative h-72 overflow-hidden">
+<div class="absolute inset-0 bg-secondary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-5xl scale-50 group-hover:scale-100 transition-transform duration-300">visibility</span>
+</div>
+<img alt="Project 3" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUHR0u7HhswYwC7dSfP5Nt-dXXWcj24GXs7ZRP2uu9IYhHTJHw8GM9NiEkNQKDbRlTm9vYeZdzyuL3__NpoQpm0SmbVUx3WahSBQML9T_C_nakwG_kQ3F9EoZ6TBY04yZ8zovwZbcUSGhcWIajpODkPg_kBEdfecX91z-iPSiAFGqM7RUREkrj7iXHq4nASJNIotZo7Pg8EgvPuH1HDtpD_npkL0Ad1uVkAkPc_CjPai2J_gy-IM4SnGjn2TJplnNw2HYFbd2Cu5Ox"/>
+<div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded text-[10px] font-mono font-bold uppercase tracking-widest text-primary border border-white/10">Gadgets</div>
+</div>
+<div class="p-8 pb-20">
+<h3 class="font-display font-bold text-2xl text-secondary dark:text-white mb-3 group-hover:text-primary transition-colors">Keycaps Personalizados</h3>
+<p class="font-body text-gray-600 dark:text-gray-400 text-base leading-relaxed">Teclas artesanales en resina de alta durabilidad para teclados mecánicos custom.</p>
+</div>
+<div class="glass-footer absolute bottom-0 w-full p-4 border-t border-white/10 flex justify-between items-center text-text-dark dark:text-white">
+<span class="text-xs font-mono text-gray-600 dark:text-gray-300 uppercase tracking-wider">03 / Accesorios</span>
+<a class="inline-flex items-center text-xs font-mono font-bold uppercase tracking-wider hover:text-primary transition-colors" href="#">
+                                Ver Detalles <span class="material-symbols-outlined text-sm ml-1">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 reveal">
+<div class="glass-panel rounded-2xl overflow-hidden h-full group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 relative transform hover:-translate-y-3">
+<div class="relative h-[400px] overflow-hidden">
+<div class="absolute inset-0 bg-secondary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-5xl scale-50 group-hover:scale-100 transition-transform duration-300">visibility</span>
+</div>
+<img alt="Project 4" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCa-xyQyVqAtWPdJvBHq7V4EqO4q9RPhHSc6gJCri9uSjfFgWxd5kLJQ0MD0zW0saZiiH5L0oQTnVAGlzX_3FFZ_T4k963k4m2B3-fb3baH89wLYEBdt4WHo-546Lb7h1gryk9V9z06jEfiNb3Wr-bLlw_DIg-F8vRpbTU_-GMDpXEA6G2i-7_D8X7IfwWyaLxbynzjIZgRIcnAMaRan_ykeOFg_lvBEosJRgxfoGgzt70enRCK0ss9BzVXrSaAxsJIm5R0XZCEyRM"/>
+<div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded text-[10px] font-mono font-bold uppercase tracking-widest text-primary border border-white/10">Electrónica</div>
+</div>
+<div class="p-8 pb-20">
+<h3 class="font-display font-bold text-2xl text-secondary dark:text-white mb-3 group-hover:text-primary transition-colors">Case Raspberry Pi Retro</h3>
+<p class="font-body text-gray-600 dark:text-gray-400 text-base leading-relaxed">Carcasa con ventilación optimizada y estética de consola de los 80, lista para imprimir.</p>
+</div>
+<div class="glass-footer absolute bottom-0 w-full p-4 border-t border-white/10 flex justify-between items-center text-text-dark dark:text-white">
+<span class="text-xs font-mono text-gray-600 dark:text-gray-300 uppercase tracking-wider">04 / Prototipado</span>
+<a class="inline-flex items-center text-xs font-mono font-bold uppercase tracking-wider hover:text-primary transition-colors" href="#">
+                                Ver Detalles <span class="material-symbols-outlined text-sm ml-1">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 reveal delay-100">
+<div class="glass-panel rounded-2xl overflow-hidden h-full group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 relative transform hover:-translate-y-3">
+<div class="relative h-72 overflow-hidden">
+<div class="absolute inset-0 bg-secondary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-5xl scale-50 group-hover:scale-100 transition-transform duration-300">visibility</span>
+</div>
+<img alt="Project 5" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWFCd3D7BlDQZUIIMIajRKQPX80Qge79KIC-6XcftccKOSXWzepu5FmsItU3zhelE6eoYIV59wb9DNhdd0Y2I6d0oq1QsqKfwUh7vAZojJz3F0hHJRofVd8-yFqAHIIj2Bw_XHEQESShhBIuh73XmYTnPGTGhu657KCGHll6aax_WoW2YXb5RVZ_CuBRWy77vp9K_4mSsL56K2dP0u9Og8yVbT9K2S9ZmkicfZzez3HlbXAGD4B-rmZh4rgbCMv7AFrOyfB1zRpM2n"/>
+<div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded text-[10px] font-mono font-bold uppercase tracking-widest text-primary border border-white/10">Prototipado</div>
+</div>
+<div class="p-8 pb-20">
+<h3 class="font-display font-bold text-2xl text-secondary dark:text-white mb-3 group-hover:text-primary transition-colors">Brazo Robótico Educativo</h3>
+<p class="font-body text-gray-600 dark:text-gray-400 text-base leading-relaxed">Kit ensamblable para enseñanza de robótica básica con servos estándar.</p>
+</div>
+<div class="glass-footer absolute bottom-0 w-full p-4 border-t border-white/10 flex justify-between items-center text-text-dark dark:text-white">
+<span class="text-xs font-mono text-gray-600 dark:text-gray-300 uppercase tracking-wider">05 / Educación</span>
+<a class="inline-flex items-center text-xs font-mono font-bold uppercase tracking-wider hover:text-primary transition-colors" href="#">
+                                Ver Detalles <span class="material-symbols-outlined text-sm ml-1">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-6 mb-4 reveal delay-200">
+<div class="glass-panel rounded-2xl overflow-hidden h-full group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 relative transform hover:-translate-y-3">
+<div class="relative h-[400px] overflow-hidden">
+<div class="absolute inset-0 bg-secondary/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 backdrop-blur-sm">
+<span class="material-symbols-outlined text-white text-5xl scale-50 group-hover:scale-100 transition-transform duration-300">visibility</span>
+</div>
+<img alt="Project 6" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByL0CHiLyHIlTgg5kbRz4eDyWvtTJ2ZTlX4w4JFK3fFhzzff2yuw2gRQA4BDIniT8bbn_njLbkRwVAjopEIs9E6MeL_tm49QtYBxH_pILn5pEy63aCex4YI16ie4J4LRpe2Y2nNzFRfetgkPMjLpiNkPI0mopNY-Rkn8XJBc-szGdCoCWI2HChAWr-ICcmnR5g1KsDtyONk_YlV4I6amwRkBb7JQOYGGRD-YNdgiaNc5M4N_XwhCng4yKZ-rIYSX8K0A89gDd3c-ow"/>
+<div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded text-[10px] font-mono font-bold uppercase tracking-widest text-primary border border-white/10">Decoración</div>
+</div>
+<div class="p-8 pb-20">
+<h3 class="font-display font-bold text-2xl text-secondary dark:text-white mb-3 group-hover:text-primary transition-colors">Lámpara Voronoi</h3>
+<p class="font-body text-gray-600 dark:text-gray-400 text-base leading-relaxed">Luminaria impresa en PETG transparente con estructura celular orgánica generada proceduralmente.</p>
+</div>
+<div class="glass-footer absolute bottom-0 w-full p-4 border-t border-white/10 flex justify-between items-center text-text-dark dark:text-white">
+<span class="text-xs font-mono text-gray-600 dark:text-gray-300 uppercase tracking-wider">06 / Arte</span>
+<a class="inline-flex items-center text-xs font-mono font-bold uppercase tracking-wider hover:text-primary transition-colors" href="#">
+                                Ver Detalles <span class="material-symbols-outlined text-sm ml-1">arrow_outward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 bg-[#061818] relative" id="contact">
+<div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+<div class="absolute top-10 left-10 w-64 h-64 bg-primary/20 rounded-full blur-[100px]"></div>
+<div class="absolute bottom-10 right-10 w-96 h-96 bg-secondary/40 rounded-full blur-[100px]"></div>
+</div>
+<div class="container mx-auto px-6 relative z-10">
+<div class="max-w-6xl mx-auto glass-panel rounded-3xl p-10 md:p-16 shadow-2xl flex flex-col lg:flex-row gap-16 reveal border border-white/10 bg-black/30 backdrop-blur-xl">
+<div class="w-full lg:w-5/12 text-center lg:text-left space-y-8">
+<div>
+<h2 class="font-display font-black text-4xl md:text-5xl text-white mb-4 uppercase tracking-wider">
+                        ¿Listo para <span class="text-primary">Crear?</span>
+</h2>
+<p class="font-body text-gray-300 text-lg leading-relaxed">
+                        Estamos aquí para resolver tus dudas y potenciar tus ideas. Ya sea un prototipo, una clase o un proyecto a medida.
+                    </p>
+</div>
+<div class="w-40 h-40 mx-auto lg:mx-0 rounded-full bg-[#1A2E35] border-2 border-primary/50 flex items-center justify-center overflow-hidden relative shadow-neon">
+<img alt="Risi AI Assistant" class="w-full h-full p-2 object-cover opacity-80 hover:opacity-100 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYHJWGrYNQrAzy9YbUnZCv5wIGTWqaUxI7CS--VsiQKv4COAWjKXHGMqT8feIW3QnoHULbOh7JJh1OmCTrDVJ-dcMDDfSBmFBACYYrD_qoHkh5yfOMsqzy6kEtT7jmx61_ANGdVU2aNeXkB0V0dYyVGM025ooc6F-npC76rRO3tNkgjv54VuieQspgZpKRuXW-7QDP3R0R6eO6pDfrl6UQ2hxqPJ-BremUzCpmubIpsLRohjXLpQilHq-kIqPde7I4ybMgVnM66Km0"/>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-center lg:justify-start gap-4 text-gray-300 hover:text-white transition-colors">
+<div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">mail</span>
+</div>
+<span class="font-body text-lg">contacto@risewave.tech</span>
+</div>
+<div class="flex items-center justify-center lg:justify-start gap-4 text-gray-300 hover:text-white transition-colors">
+<div class="w-10 h-10 rounded bg-white/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">location_on</span>
+</div>
+<span class="font-body text-lg">Buenos Aires, Argentina</span>
+</div>
+</div>
+</div>
+<div class="w-full lg:w-7/12 bg-secondary-dark/60 p-8 rounded-2xl border border-white/10 shadow-lg">
+<form class="space-y-6">
+<div class="grid md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-mono font-bold uppercase tracking-widest text-primary">Nombre</label>
+<input class="w-full input-glass rounded-lg p-4 text-white focus:ring-1 focus:ring-primary focus:outline-none transition-all placeholder-gray-500" placeholder="Tu nombre" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-mono font-bold uppercase tracking-widest text-primary">Email</label>
+<input class="w-full input-glass rounded-lg p-4 text-white focus:ring-1 focus:ring-primary focus:outline-none transition-all placeholder-gray-500" placeholder="tucorreo@ejemplo.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-mono font-bold uppercase tracking-widest text-primary">Mensaje</label>
+<textarea class="w-full input-glass rounded-lg p-4 text-white focus:ring-1 focus:ring-primary focus:outline-none transition-all placeholder-gray-500" placeholder="¿En qué podemos ayudarte?" rows="5"></textarea>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-red-700 hover:from-red-600 hover:to-red-800 text-white font-mono font-bold uppercase tracking-widest py-5 rounded-lg transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-neon">
+                            Enviar Consulta
+                        </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-black text-white py-16 border-t border-gray-900">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-center gap-10">
+<div class="flex flex-col items-center md:items-start gap-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-white rounded-full flex items-center justify-center border-2 border-primary overflow-hidden shadow-neon">
+<img alt="Rise Wave Logo" class="object-cover w-full h-full scale-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwdEbMOFg5U_cvDTt_d27rKuWMJI5E_K8H60DYmhAhT3PuoC3GDGeo6VxXpUGHExdkML_yMFH27gbrFb1osDbM3aRgAX-S4ttKOEWUp2zVzHnX2CSMb6fsM6XfdmFaOgxGZhlqABKB3Mhukbhp17jRqgoHK9nuzg-JkSyGjYgSzcBgaoRHgKqVr1JJOSUImG6voOyJpoz0ilAZc58zUWU-_n-r_MkbV01yofC4c-dR6EgBtVquuQeAkHECIEsyT5AEs7aPlg4gWQqB"/>
+</div>
+<div class="font-display font-black text-2xl leading-none tracking-widest text-white">
+                            RISE<br/><span class="text-gray-500 text-lg">WAVE TECH</span>
+</div>
+</div>
+<p class="font-body text-sm tracking-widest text-gray-500 max-w-xs text-center md:text-left">
+                        Innovación educativa y diseño multimedia para el futuro.
+                    </p>
+</div>
+<div class="flex gap-8">
+<a class="text-gray-500 hover:text-primary transition-all hover:scale-125" href="#">
+<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg>
+</a>
+<a class="text-gray-500 hover:text-primary transition-all hover:scale-125" href="#">
+<svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+</a>
+<a class="text-gray-500 hover:text-primary transition-all hover:scale-125" href="#">
+<span class="material-symbols-outlined w-6 h-6">mail</span>
+</a>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-gray-900 text-center">
+<p class="font-display text-xs tracking-widest text-gray-700">
+                    © 2024 RISE WAVE TECH. ALL RIGHTS RESERVED.
+                </p>
+</div>
+</div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
+<script>
+        // Dark Mode Toggle Logic
+        const toggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        // Check local storage or system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+        toggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Simple Reveal on Scroll Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        function checkReveal() {
+            const triggerBottom = window.innerHeight * 0.85;
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if(elementTop < triggerBottom) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkReveal);
+        // Initial check
+        checkReveal();
+        // Masonry Init correction for when images load
+        window.addEventListener('load', function() {
+            var elem = document.querySelector('.row');
+            if(elem && typeof Masonry !== 'undefined') {
+                 new Masonry( elem, {
+                    itemSelector: '.col-lg-4',
+                    percentPosition: true
+                });
+            }
+        });
+    </script>
+
+</body></html>
