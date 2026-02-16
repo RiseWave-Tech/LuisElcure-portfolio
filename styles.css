@@ -221,6 +221,11 @@ body.dark-mode .navbar:not(.scrolled) .theme-switch i {
     transform: scale(1.05);
 }
 
+.hover-primary:hover {
+    color: var(--primary) !important;
+    transition: color 0.3s ease;
+}
+
 /* Portfolio Masonry */
 .masonry-grid {
     display: block !important;
