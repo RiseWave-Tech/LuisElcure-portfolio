@@ -226,6 +226,26 @@ body.dark-mode .navbar:not(.scrolled) .theme-switch i {
     transition: color 0.3s ease;
 }
 
+/* Stack Mobile Optimization */
+@media (max-width: 576px) {
+    .stack-item {
+        padding: 1rem !important;
+        /* Reduce padding from p-4 */
+    }
+
+    .stack-item i {
+        font-size: 2rem !important;
+        /* Reduce icon size */
+        margin-bottom: 0.5rem !important;
+        /* Reduce spacing */
+    }
+
+    .stack-item h6 {
+        font-size: 0.85rem;
+        /* Smaller text */
+    }
+}
+
 /* Portfolio Masonry */
 .masonry-grid {
     display: block !important;
