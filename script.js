@@ -58,7 +58,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         let scrollPosition = window.pageYOffset;
         if (parrotBg) {
-            parrotBg.style.transform = 'translateY(' + (scrollPosition * 0.5) + 'px)';
+            // Efecto parallax más notorio con traslación más rápida y un sutil efecto de zoom
+            parrotBg.style.transform = `translateY(${scrollPosition * 0.65}px) scale(${1 + scrollPosition * 0.0004})`;
         }
 
         // Navbar Glass Effect on Scroll
@@ -80,10 +81,15 @@ document.addEventListener('DOMContentLoaded', () => {
             var elementTop = reveals[i].getBoundingClientRect().top;
             var elementVisible = 150;
             if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add('active'); // Add CSS class for fade-in if needed
+                reveals[i].classList.add('active'); // Muestra el elemento al scrollear hacia abajo
+            } else {
+                reveals[i].classList.remove('active'); // Oculta el elemento al scrollear hacia arriba
             }
         }
     });
+
+    // Disparar evento scroll al cargar para que los elementos visibles iniciales apliquen el efecto reveal
+    window.dispatchEvent(new Event('scroll'));
 
     // --- Smooth Scroll for Anchor Links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

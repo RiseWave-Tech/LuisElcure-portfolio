@@ -582,3 +582,26 @@ body.dark-mode .project-modal .modal-content {
     border-radius: 1rem;
     margin-bottom: 1.5rem;
 }
+
+/* --- Reveal on Scroll --- */
+.glass-card,
+.section-padding h2 {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.glass-card.active,
+.section-padding h2.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ensure project card and stack item hover transitions still work correctly */
+.project-card.active {
+    transition: opacity 0.8s ease-out, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.stack-item.active {
+    transition: opacity 0.8s ease-out, transform 0.3s ease, border-color 0.3s ease;
+}
