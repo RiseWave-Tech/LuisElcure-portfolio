@@ -105,7 +105,7 @@ body.dark-mode .glass-input:focus {
 body.dark-mode .navbar:not(.scrolled) .navbar-brand,
 body.dark-mode .navbar:not(.scrolled) .nav-link,
 body.dark-mode .navbar:not(.scrolled) .theme-switch i {
-    color: #1A1A1A !important;
+    color: #FFFFFF !important;
 }
 
 .nav-link::after {
@@ -121,6 +121,19 @@ body.dark-mode .navbar:not(.scrolled) .theme-switch i {
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+/* Navbar Mobile Collapse Background */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 1rem;
+        border-radius: 1rem;
+        margin-top: 1rem;
+        box-shadow: var(--card-shadow);
+    }
 }
 
 /* Hero Section */
@@ -319,12 +332,25 @@ Branding (Small): col-md-4 -> Small height
 
 @media (max-width: 768px) {
 
-    .card-vertical,
-    .card-horizontal,
+    .card-vertical {
+        aspect-ratio: 3 / 4;
+        height: auto !important;
+    }
+    .card-horizontal {
+        aspect-ratio: 16 / 9;
+        height: auto !important;
+    }
     .card-small {
-        height: auto;
-        /* Let content dictate height on mobile or set a min-height */
-        min-height: 300px;
+        aspect-ratio: 1 / 1;
+        height: auto !important;
+    }
+
+    /* Asegurar que la imagen llene el contenedor sin romper la altura en móviles */
+    .project-card img,
+    .project-card video {
+        height: 100% !important;
+        width: 100% !important;
+        object-fit: cover;
     }
 }
 
@@ -481,29 +507,78 @@ body.dark-mode .aesthetic-shadow {
 }
 
 /* Hero Section Text Contrast Overrides */
-/* Ensure hero text remains dark in both light and dark modes */
+/* Ensure hero text remains dark in light mode */
 #hero h5 {
     color: #1A1A1A !important;
-    /* Force dark gray regardless of mode */
     font-weight: 700;
 }
 
 #hero .text-gradient {
-    /* Override global text-gradient to use dark colors even in dark mode */
     background: linear-gradient(45deg, #1A1A1A, var(--primary));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* In dark mode, ensure the text doesn't flip to white */
+/* Modificar el fondo del Hero en Modo Oscuro */
+body.dark-mode .parallax-bg {
+    background-image: linear-gradient(to bottom, rgba(15, 15, 15, 0.9) 0%, rgba(15, 15, 15, 0.6) 50%, rgba(15, 15, 15, 1) 100%),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Great_Wave_off_Kanagawa2.jpg/2560px-Great_Wave_off_Kanagawa2.jpg');
+    filter: grayscale(30%) brightness(40%);
+}
+
+/* En modo oscuro, asegurar que los textos del Hero sean blancos/plata */
 body.dark-mode #hero h5 {
-    color: #000000 !important;
+    color: rgba(255, 255, 255, 0.8) !important;
 }
 
 body.dark-mode #hero .text-gradient {
-    background: linear-gradient(45deg, #000000, var(--primary));
+    background: linear-gradient(45deg, #FFFFFF, var(--primary));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+/* --- Clases Faltantes --- */
+.bg-light-alt {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+body.dark-mode .bg-light-alt {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.contact-bg {
+    background: radial-gradient(circle at 80% 20%, rgba(217, 48, 37, 0.05) 0%, transparent 50%);
+}
+body.dark-mode .contact-bg {
+    background: radial-gradient(circle at 80% 20%, rgba(255, 92, 92, 0.08) 0%, transparent 60%);
+}
+
+/* --- Estilos Modal de Proyecto --- */
+.project-modal .modal-content {
+    background: var(--bg-color);
+    border: 1px solid var(--glass-border);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+}
+
+body.dark-mode .project-modal .modal-content {
+    background: var(--bg-color);
+}
+
+.project-modal .modal-header {
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.project-modal .modal-footer {
+    border-top: 1px solid var(--glass-border);
+}
+
+.project-modal-media {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
 }

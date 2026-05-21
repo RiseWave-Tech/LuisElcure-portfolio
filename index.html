@@ -22,9 +22,20 @@
     <nav class="navbar navbar-expand-lg fixed-top glass-effect">
         <div class="container">
             <a class="navbar-brand fw-bold text-uppercase" href="#">Luis Elcure</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <div class="d-flex align-items-center">
+                <div class="theme-switch-wrapper me-3">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round">
+                            <i class="fas fa-sun sun-icon"></i>
+                            <i class="fas fa-moon moon-icon"></i>
+                        </div>
+                    </label>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link" href="#hero">Inicio</a></li>
@@ -32,17 +43,6 @@
                     <li class="nav-item"><a class="nav-link" href="#stack">Stack</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio">Proyectos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Conectar</a></li>
-                    <li class="nav-item ms-3">
-                        <div class="theme-switch-wrapper">
-                            <label class="theme-switch" for="checkbox">
-                                <input type="checkbox" id="checkbox" />
-                                <div class="slider round">
-                                    <i class="fas fa-sun sun-icon"></i>
-                                    <i class="fas fa-moon moon-icon"></i>
-                                </div>
-                            </label>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -209,8 +209,7 @@
 
                 <!-- Card 2: Horizontal (Web Dev) -->
                 <div class="col-sm-6 col-lg-4 mb-4 grid-item">
-                    <a href="https://risewave-tech.vercel.app/" target="_blank">
-                    <div class="project-card glass-card h-100 p-0 overflow-hidden rounded-4 position-relative hover-zoom card-horizontal">
+                    <div class="project-card glass-card h-100 p-0 overflow-hidden rounded-4 position-relative hover-zoom card-horizontal" data-link="https://risewave-tech.vercel.app/">
                         
                             <img src="assets/riseWave_muck.png" alt="Project 2"
                                 class="img-fluid w-100 h-100 object-fit-cover">
@@ -221,8 +220,7 @@
                             <p class="text-white-50 small mb-0">Tienda en línea responsiva con integración de pagos.</p>
                         </div>
                     </div>
-                    
-                </a></div>
+                </div>
 
                 <!-- Card 3: Horizontal (Web Dev) -->
                 <div class="col-sm-6 col-lg-4 mb-4 grid-item">
@@ -442,6 +440,34 @@
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <!-- Custom Scripts -->
     <script src="script.js"></script>
+
+    <!-- Project Detail Modal -->
+    <div class="modal fade project-modal" id="projectModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content glass-effect">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold text-gradient" id="modalTitle">Project Title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="modalMediaContainer" class="text-center">
+                        <img id="modalImage" src="" class="project-modal-media d-none" alt="Project Media">
+                        <video id="modalVideo" class="project-modal-media d-none" autoplay muted loop playsinline>
+                            <source src="" type="video/mp4">
+                        </video>
+                    </div>
+                    <span class="badge bg-primary mb-3" id="modalCategory">Category</span>
+                    <h4 class="fw-bold mb-3">Descripción del Proyecto</h4>
+                    <p id="modalDescription" class="text-muted">Description goes here.</p>
+                </div>
+                <div class="modal-footer border-0 pt-0 justify-content-start">
+                    <a href="#" id="modalLink" target="_blank" class="btn btn-primary rounded-pill d-none">
+                        <i class="fas fa-external-link-alt me-2"></i> Ver Proyecto en Vivo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

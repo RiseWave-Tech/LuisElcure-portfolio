@@ -88,10 +88,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Smooth Scroll for Anchor Links ---
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const targetId = this.getAttribute('href');
+            
+            if (!targetId || !targetId.startsWith('#') || targetId === '#') {
+                return;
+            }
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
@@ -106,5 +115,60 @@ document.addEventListener('DOMContentLoaded', () => {
             item.style.setProperty('--y', `${y}px`);
         });
     });
+    // --- Project Modal Logic ---
+    const modalElement = document.getElementById('projectModal');
+    if (modalElement && typeof bootstrap !== 'undefined') {
+        const projectModal = new bootstrap.Modal(modalElement);
+        const modalTitle = document.getElementById('modalTitle');
+        const modalCategory = document.getElementById('modalCategory');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalImage = document.getElementById('modalImage');
+        const modalVideo = document.getElementById('modalVideo');
+        const modalLink = document.getElementById('modalLink');
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.style.cursor = 'pointer';
+            
+            card.addEventListener('click', () => {
+                const title = card.querySelector('h4') ? card.querySelector('h4').innerText : 'Proyecto';
+                const category = card.querySelector('.badge') ? card.querySelector('.badge').innerText : '';
+                const desc = card.querySelector('p') ? card.querySelector('p').innerText : '';
+                const img = card.querySelector('img');
+                const videoSource = card.querySelector('video source');
+                const link = card.getAttribute('data-link');
+
+                modalTitle.innerText = title;
+                modalCategory.innerText = category;
+                modalDescription.innerText = desc;
+
+                if (img) {
+                    modalImage.src = img.src;
+                    modalImage.classList.remove('d-none');
+                    modalVideo.classList.add('d-none');
+                    modalVideo.pause();
+                } else if (videoSource) {
+                    modalVideo.querySelector('source').src = videoSource.src;
+                    modalVideo.load();
+                    modalVideo.classList.remove('d-none');
+                    modalImage.classList.add('d-none');
+                    modalVideo.play();
+                }
+
+                if (link) {
+                    modalLink.href = link;
+                    modalLink.classList.remove('d-none');
+                } else {
+                    modalLink.classList.add('d-none');
+                }
+
+                projectModal.show();
+            });
+        });
+
+        // Pause video when modal is closed
+        modalElement.addEventListener('hidden.bs.modal', () => {
+            modalVideo.pause();
+        });
+    }
 
 });
