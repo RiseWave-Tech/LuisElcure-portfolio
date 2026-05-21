@@ -74,16 +74,28 @@ document.addEventListener('DOMContentLoaded', () => {
             navbar.style.boxShadow = 'none';
         }
 
-        // --- Reveal on Scroll (Simple) ---
+        // --- Reveal on Scroll (con histéresis para evitar parpadeos) ---
         const reveals = document.querySelectorAll('.glass-card, .section-padding h2');
         for (var i = 0; i < reveals.length; i++) {
             var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
+            var rect = reveals[i].getBoundingClientRect();
+            var elementTop = rect.top;
+            var elementBottom = rect.bottom;
             var elementVisible = 150;
-            if (elementTop < windowHeight - elementVisible) {
-                reveals[i].classList.add('active'); // Muestra el elemento al scrollear hacia abajo
+            
+            var isActive = reveals[i].classList.contains('active');
+
+            if (isActive) {
+                // Si está activo, lo ocultamos si sale completamente por debajo o por arriba de la pantalla
+                if (elementTop > windowHeight || elementBottom < 0) {
+                    reveals[i].classList.remove('active');
+                }
             } else {
-                reveals[i].classList.remove('active'); // Oculta el elemento al scrollear hacia arriba
+                // Si está oculto, lo mostramos cuando entra en la zona visible.
+                // elementBottom > 50 previene el parpadeo causado por el translateY de 40px al animarse.
+                if (elementTop < windowHeight - elementVisible && elementBottom > 50) {
+                    reveals[i].classList.add('active');
+                }
             }
         }
     });
